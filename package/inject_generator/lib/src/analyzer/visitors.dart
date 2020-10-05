@@ -80,8 +80,8 @@ class _LibraryVisitor extends RecursiveElementVisitor<Null> {
       builderContext.log.severe(
         element,
         'A class may be an injectable, a module or an injector, '
-            'but not more than one of these types. However class '
-            '${element.name} was found to be ${types.join(' and ')}',
+        'but not more than one of these types. However class '
+        '${element.name} was found to be ${types.join(' and ')}',
       );
       return null;
     }
@@ -140,7 +140,8 @@ abstract class InjectClassVisitor {
 
   /// Call to start visiting [clazz].
   void visitClass(ClassElement clazz) {
-    for (var supertype in clazz.allSupertypes.where((t) => !t.isDartCoreObject)) {
+    for (var supertype
+        in clazz.allSupertypes.where((t) => !t.isDartCoreObject)) {
       new _AnnotatedClassVisitor(this).visitClassElement(supertype.element);
     }
     new _AnnotatedClassVisitor(this).visitClassElement(clazz);

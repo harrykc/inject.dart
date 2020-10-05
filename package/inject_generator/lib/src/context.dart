@@ -2,7 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-
 import 'dart:async';
 import 'package:analyzer/dart/analysis/results.dart';
 
@@ -39,7 +38,7 @@ BuilderContext get builderContext {
   if (context == null) {
     throw new StateError(
       'No current $BuilderContext is active. Start your build function using '
-          '"runInContext" to be able to use "builderContext"',
+      '"runInContext" to be able to use "builderContext"',
     );
   }
   return context;
@@ -95,7 +94,8 @@ class BuilderLogger {
   String _constructMessage(Element element, String message) {
     ElementDeclarationResult elementDeclaration;
     if (element.kind != ElementKind.DYNAMIC) {
-      var parsedLibrary = element.library.session.getParsedLibraryByElement(element.library);
+      var parsedLibrary =
+          element.library.session.getParsedLibraryByElement(element.library);
       if (parsedLibrary.state == ResultState.VALID) {
         elementDeclaration = parsedLibrary.getElementDeclaration(element);
       }
